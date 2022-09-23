@@ -54,6 +54,6 @@
         $ pip freeze > requirements.txt
    ```
    > run configuration 설정에서 가상환경으로 python interpreter를 설정해 줍니다.   
-   > 그러면 절대 경로로 인식하고 프로젝트 수행 가능합니다.
+   > 그러면 절대 경로로 인식하고 프로젝트 수행 가능합니다. (https://velog.io/@shy9664/venv-setting)
 
 
