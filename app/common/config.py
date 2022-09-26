@@ -4,6 +4,7 @@ from os import path, environ
 # 상대경로를 하기 어렵기 때문에 절대 경로를 위해서 관리 용도로 사용한다.
 base_dir = path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
 
+
 @dataclass
 class Config:
     """
@@ -16,8 +17,15 @@ class Config:
 
 
 @dataclass
-class LocalConfig(Config): # Config를 상속받음
+class LocalConfig(Config):  # Config를 상속받음
     PROJ_RELOAD: bool = True
+    DB_USERNAME: str = "travis"
+    DB_PASSWORD: str = "Qjqan12#"
+    DB_HOST: str = "localhost"
+    DB_PORT: str = "3306"
+    DB_NAME: str = "notification_api"
+    DB_URL: str = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
+
 
 # 언팩킨해서 사용할 수 있도록 asdict를 사용한다.
 # asdict는 dataclass를 dict로 변환해준다.
@@ -40,6 +48,4 @@ def conf():
     :return:
     """
     config = dict(prod=ProdConfig(), local=LocalConfig())
-    return config.get(environ.get("API_ENV", "local")) # 환경변수를 가져온다. 없다면 local을 써라
-
-
+    return config.get(environ.get("API_ENV", "local"))  # 환경변수를 가져온다. 없다면 local을 써라
