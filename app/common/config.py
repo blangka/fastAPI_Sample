@@ -18,13 +18,14 @@ class Config:
 
 @dataclass
 class LocalConfig(Config):  # Config를 상속받음
-    PROJ_RELOAD: bool = True
     DB_USERNAME: str = "travis"
     DB_PASSWORD: str = "Qjqan12#"
     DB_HOST: str = "localhost"
     DB_PORT: str = "3306"
     DB_NAME: str = "notification_api"
     DB_URL: str = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}?charset=utf8mb4"
+    TRUSTED_HOSTS = ["*"]
+    ALLOW_SITE = ["*"]
 
 
 # 언팩킨해서 사용할 수 있도록 asdict를 사용한다.
@@ -39,7 +40,8 @@ class LocalConfig(Config):  # Config를 상속받음
 
 @dataclass
 class ProdConfig(Config):
-    PROJ_RELOAD: bool = False
+    TRUSTED_HOSTS = ["*"]
+    ALLOW_SITE = ["*"]
 
 
 def conf():

@@ -82,3 +82,6 @@
 7  실습 step4 로그인시 jwt 발급 + 미들웨어 추가
    1. jwt token을 발급하는 기능을 추가한다.
    2. jwt io에서 확인 할수 있다. (https://jwt.io/)
+   3. 미들웨어는 spring의 intercepter , filter 같은 전처리후처리 이다.(https://blog.neonkid.xyz/271)
+   4. token 검사 할때 예외 경로에 대해서는 consts 에서 EXCEPT_PATH 로 추가해서 token_validator.py 미들웨어 에서 사용한다.
+   5. data 타임 제어를 위해 utils 에 추가함
