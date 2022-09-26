@@ -77,4 +77,8 @@
    1. pydantic을 사용하여 회원가입을 만든다.
    2. main.py에 routes/auth.py를 추가한다. 회원 가입 로그인 기능 추가.
    3. jwt token 을 활용하고 암복호화로 회원 가입 기능 추가
-   4. models.py에서 사용되는 모델들의 기능 추가
+   4. models.py에서 사용되는 모델들의 기능 추가(https://data-newbie.tistory.com/836)
+
+7  실습 step4 로그인시 jwt 발급 + 미들웨어 추가
+   1. jwt token을 발급하는 기능을 추가한다.
+   2. jwt io에서 확인 할수 있다. (https://jwt.io/)
