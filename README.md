@@ -72,3 +72,9 @@
     3. config에 있는 db 정보를 가지고 db를 연결한다. db 연결 code는 database/conn.py 이다.  
     4. 최초에 user 에 대한 테이블을 만들어 준다.
     5. router도 나누어 주어서 / 에서 DB에 직접 insert 추가
+
+6. 실습 step3 회원가입만들기
+   1. pydantic을 사용하여 회원가입을 만든다.
+   2. main.py에 routes/auth.py를 추가한다. 회원 가입 로그인 기능 추가.
+   3. jwt token 을 활용하고 암복호화로 회원 가입 기능 추가
+   4. models.py에서 사용되는 모델들의 기능 추가

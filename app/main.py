@@ -5,7 +5,7 @@ from fastapi import FastAPI
 
 from app.common.config import conf
 from app.database.conn import db
-from app.routes import index
+from app.routes import index,auth
 
 def create_app():
     """
@@ -24,6 +24,7 @@ def create_app():
 
     # 라우터 정의
     app.include_router(index.router)
+    app.include_router(auth.router, tags=["Authentication"], prefix="/auth")
     return app
 
 
