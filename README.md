@@ -64,24 +64,25 @@
 4. 실습 step 1 환경구성
     1. main.py로 실행 시키고 swagger 동작 확인
     2. local , prod 별로 config 파일을 만들어 줍니다.
-    3. from app.common.config import conf 가 정상적으로 동작하려면 export PYTHONPATH=$PWD 를 실행 시켜준다.  
+    3. from app.common.config import conf 가 정상적으로 동작하려면 export PYTHONPATH=$PWD 를 실행 시켜준다.
 
 5. 실습 step2 DB 연결
     1. [sqlalchemy](https://docs.sqlalchemy.org/en/14/) : ORM 을 사용한다.
-    2. [mysql 설치 방법 및 dbear setting](https://citronbanana.tistory.com/11) , [mysql password 잃어 버렸을때](https://velog.io/@sorzzzzy/MySQL-Mac-MySQL-root-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B4%88%EA%B8%B0%ED%99%94%ED%95%98%EA%B8%B0)  
-    3. config에 있는 db 정보를 가지고 db를 연결한다. db 연결 code는 database/conn.py 이다.  
+    2. [mysql 설치 방법 및 dbear setting](https://citronbanana.tistory.com/11)
+       , [mysql password 잃어 버렸을때](https://velog.io/@sorzzzzy/MySQL-Mac-MySQL-root-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%B4%88%EA%B8%B0%ED%99%94%ED%95%98%EA%B8%B0)
+    3. config에 있는 db 정보를 가지고 db를 연결한다. db 연결 code는 database/conn.py 이다.
     4. 최초에 user 에 대한 테이블을 만들어 준다.
     5. router도 나누어 주어서 / 에서 DB에 직접 insert 추가
 
 6. 실습 step3 회원가입만들기
-   1. pydantic을 사용하여 회원가입을 만든다.
-   2. main.py에 routes/auth.py를 추가한다. 회원 가입 로그인 기능 추가.
-   3. jwt token 을 활용하고 암복호화로 회원 가입 기능 추가
-   4. models.py에서 사용되는 모델들의 기능 추가(https://data-newbie.tistory.com/836)
+    1. pydantic을 사용하여 회원가입을 만든다.
+    2. main.py에 routes/auth.py를 추가한다. 회원 가입 로그인 기능 추가.
+    3. jwt token 을 활용하고 암복호화로 회원 가입 기능 추가
+    4. models.py에서 사용되는 모델들의 기능 추가(https://data-newbie.tistory.com/836)
 
-7  실습 step4 로그인시 jwt 발급 + 미들웨어 추가
-   1. jwt token을 발급하는 기능을 추가한다.
-   2. jwt io에서 확인 할수 있다. (https://jwt.io/)
-   3. 미들웨어는 spring의 intercepter , filter 같은 전처리후처리 이다.(https://blog.neonkid.xyz/271)
-   4. token 검사 할때 예외 경로에 대해서는 consts 에서 EXCEPT_PATH 로 추가해서 token_validator.py 미들웨어 에서 사용한다.
-   5. data 타임 제어를 위해 utils 에 추가함
+7. 실습 step4 로그인시 jwt 발급 미들웨어 추가
+    1. jwt token을 발급하는 기능을 추가한다.
+    2. jwt io에서 확인 할수 있다. (https://jwt.io/)
+    3. 미들웨어는 spring의 intercepter , filter 같은 전처리후처리 이다.(https://blog.neonkid.xyz/271)
+    4. token 검사 할때 예외 경로에 대해서는 consts 에서 EXCEPT_PATH 로 추가해서 token_validator.py 미들웨어 에서 사용한다.
+    5. data 타임 제어를 위해 utils 에 추가함  
