@@ -65,3 +65,4 @@
    1. 환경 구성
       1. main.py로 실행 시키고 swagger 동작 확인
       2. local , prod 별로 config 파일을 만들어 줍니다.
+      3. from app.common.config import conf 가 정상적으로 동작하려면 export PYTHONPATH=$PWD 를 실행 시켜준다. 
