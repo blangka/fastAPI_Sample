@@ -7,10 +7,9 @@ from fastapi.security import APIKeyHeader
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.middleware.cors import CORSMiddleware
 
-from app.common.consts import EXCEPT_PATH_LIST, EXCEPT_PATH_REGEX
 from app.database.conn import db
 from app.common.config import conf
-from app.middlewares.token_validator import AccessControl
+from app.middlewares.token_validator import access_control
 from app.middlewares.trusted_hosts import TrustedHostMiddleware
 from app.routes import index, auth, users
 
@@ -32,7 +31,7 @@ def create_app():
 
     # 미들웨어 정의
     # 미들웨어는 제일 마지막에 있는 미들 웨어 부터 실행 된다 그렇기 때문에 미들웨어를 추가 할 때는 뒤에서 부터 추가 해야 한다.
-    app.add_middleware(AccessControl, except_path_list=EXCEPT_PATH_LIST, except_path_regex=EXCEPT_PATH_REGEX)
+    app.add_middleware(middleware_class=BaseHTTPMiddleware, dispatch=access_control)
     app.add_middleware(
         CORSMiddleware,
         allow_origins=conf().ALLOW_SITE,
