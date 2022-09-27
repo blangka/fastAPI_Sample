@@ -85,4 +85,10 @@
     2. jwt io에서 확인 할수 있다. (https://jwt.io/)
     3. 미들웨어는 spring의 intercepter , filter 같은 전처리후처리 이다.(https://blog.neonkid.xyz/271)
     4. token 검사 할때 예외 경로에 대해서는 consts 에서 EXCEPT_PATH 로 추가해서 token_validator.py 미들웨어 에서 사용한다.
-    5. data 타임 제어를 위해 utils 에 추가함  
+    5. data 타임 제어를 위해 utils 에 추가함
+8. 실습 step5 익셉션 핸들링
+    1. swagger 에서 auth 키 넣을수 있도록 main 에 추가 (    app.include_router(users.router, tags=["Users"], prefix="/api",
+       dependencies=[Depends(API_KEY_HEADER)]))
+    2. errors folder 에서 익셉션 핸들링을 한다.
+    3. exception은 raise로 발생 시키고 실제 에러별 정의는 exceptions.py에 있습니다.
+    4. token_validator.py 에서 res = await self.app(scope, receive, send) 호출시에 에러가 났으니까 보내주세 된다.
